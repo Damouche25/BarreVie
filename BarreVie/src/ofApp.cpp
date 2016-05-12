@@ -3,6 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	lancementBarreDeVie.initBarreVie();
+	sprint=5;//la baisse de sprint
+	elec=5;//la baisse d'électricité
 }
 
 //--------------------------------------------------------------
@@ -13,7 +15,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	lancementBarreDeVie.majBarreVie();
-	lancementBarreDeVie.baissePV();
+
 }
 
 //--------------------------------------------------------------
@@ -21,17 +23,28 @@ void ofApp::keyPressed(int key){
 	if (key == 'a') 
 	{
 		lancementBarreDeVie.vie = lancementBarreDeVie.vie - lancementBarreDeVie.brunoFileLesDegat;
-		
-			lancementBarreDeVie.taillebarre = lancementBarreDeVie.taillebarre - (lancementBarreDeVie.pourVie*lancementBarreDeVie.pourVieBarre);
+		lancementBarreDeVie.taillebarre1 = lancementBarreDeVie.taillebarre1 - lancementBarreDeVie.pourVieBarre;
+		printf("%f",lancementBarreDeVie.vie);
 	}
-	if (lancementBarreDeVie.taillebarre <= 0) 
+	if (lancementBarreDeVie.taillebarre1 <= 0) 
 	{
-		lancementBarreDeVie.taillebarre = 0;
+		lancementBarreDeVie.taillebarre1 = 0;
 	}
+	
+	if (key == 'z')
+	{
+		lancementBarreDeVie.augmente(elec, 2);//en premier:soit sprint, soit elec c'est ce qu'on retire ou on ajoute selon la méthode
+	}											//En deuxième, c'est le type, 1 c'est sprint, soit c'est elec le type 2
+	if (key == 'e')
+	{
+		lancementBarreDeVie.baisse( elec,2);
+	}
+	
 }
 
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key){
+void ofApp::keyReleased(int key)
+{
 
 }
 
