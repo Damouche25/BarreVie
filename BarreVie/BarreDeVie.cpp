@@ -35,7 +35,7 @@ void BarreDeVie::majBarreVie()
 	ofSetColor(200, 0, 0);
 	ofDrawRectRounded(tailleX - 265, 15, taillebarre1, 25,100);
 	ofSetColor(255);
-	ofSetColor(0,0,200);
+	ofSetColor(255,255,0);
 	ofDrawRectRounded(tailleX - 265, 45, taillebarre2, 25, 100);
 	ofSetColor(255);
 	ofSetColor(0,200,0);
